@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+</head>
+<body>
+</body>
+    <h5>search results</h5>
+
+    <div>
+        {% if courses %}
+            {% for course in courses %}
+                {{course}}
+            {% endfor %}
+        {% else %}
+            <p>no courses with this name yet</p>
+        {% endif %}
+    </div>
+
+    {%if user.is_authenticated %}
+        <a href="{% url 'EnrollStd' %}">enroll</a>
+        <a href="{% url 'courses_list' %}">courses_list</a>
+        <a href="{% url 'home' %}">back to home</a>
+    {% else %}
+        <a href="{% url 'landing' %}">back to landing</a>
+    {% endif %}
+
+</html>

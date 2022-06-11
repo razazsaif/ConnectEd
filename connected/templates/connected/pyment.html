@@ -1,0 +1,28 @@
+{%load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll Course</title>
+</head>
+<body>
+
+    <div class="mb-4">
+        <form  action="" method="POST">
+         <h2>Course Payment</h2>
+         <span>Confirm your course payment</span>
+         </div>
+
+         {% csrf_token %}
+         {{ formpyment.as_p }}
+
+            <span>Your total payment</span>
+                <h1 class="mb-0 ">$549</h1> <span>.9s9</span>
+                <span>Now you can be fully connected to your Educator.</span>
+                <button type="submit" class="btn btn-primary"> Confirm Payment </button>
+                   <h1>{{msg}}</h1>
+        </form>
+</body>       
+</html>

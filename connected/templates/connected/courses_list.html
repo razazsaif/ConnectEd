@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add course</title>
+</head>
+<body>
+    {%if user.is_authenticated %}
+
+        <form action='{% url "search" %}'>
+
+            <input type="text" placeholder="search" name="searched">
+            <button type="submit">search</button>
+        
+        </form>
+
+        <div>
+            <h1>courses:</h1>
+            {% for course in course_list %}
+               {{course}}
+                <ul>
+                    <li>name: {{course.course_name}} </li>
+                    <li>type: {{course.course_type}} </li>
+                    <li>duration: {{course.course_duration}} </li>
+                    <li>schedule: {{course.course_schedule}} </li>
+                    {% for ed in course.educators.all%}
+                        <li>educator: {{ed}} </li>
+                    {% endfor %}
+                    <li>lessons number: {{course.lesson_number}} </li>
+                    <a href="{% url 'EnrollStd' %}">enroll</a>
+                </ul>
+            {% endfor %}
+            <a href="{% url 'home' %}">back to home</a>
+        </div>
+    {% endif %}
+</body>
+</html>

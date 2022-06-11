@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learners</title>
+</head>
+<body>
+    {% if joined %}
+        <h2>Thank you for joining</h2>
+    {% else %}
+        <h3>fill the form to join</h3>
+        <form method="post" enctype="multipart/form-data">
+           {% csrf_token %}
+           {{ user_form }}
+           {{ learner_form }}
+        <input type="submit" value="learnerjoin" class="btn btn-primary btn-block">
+        </form>
+    {% endif %}
+</body>
+</html>
